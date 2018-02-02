@@ -9,5 +9,10 @@ class Guest
     @money = money
   end
 
+  def guest_pay_entry_fee(room)
+    @money -= room.entry_fee
+    room.till += room.entry_fee
+  end
+
 
 end

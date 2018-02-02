@@ -15,7 +15,7 @@ class RoomsTest < MiniTest::Test
     @song4 = Song.new("Circle of Life", "Elton John")
     @song5 = Song.new("I want it all", "Queen")
     @song6 = Song.new("Friday", "Rebecca Black")
-    @room = Room.new("Blue Banana", 5)
+    @room = Room.new("Blue Banana", 5, 2)
     @guest1 = Guest.new("Jean", @song1, 50)
     @guest2 = Guest.new("Kevin Bacon", @song2, 50)
     @guest3 = Guest.new("Jeff Bridges", @song3, 50)
@@ -66,6 +66,8 @@ class RoomsTest < MiniTest::Test
     assert_equal(1, @room.playlist.count)
     assert_equal("Africa", @room.playlist[0].title)
   end
+
+
 
 
 
