@@ -13,11 +13,11 @@ def setup
 end
 
 def test_song_has_artist
-  @song.artist
+  assert_equal("Toto", @song.artist)
 end
 
 def test_song_has_title
-  @song.title
+  assert_equal("Africa", @song.title)
 end
 
 
