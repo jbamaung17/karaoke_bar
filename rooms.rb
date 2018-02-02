@@ -11,6 +11,9 @@ def initialize(room_name, playlist, maximum_capacity)
 
 end
 
+def guest_check_in(guest)
+  @room_guests << guest
+end
 
 
 
