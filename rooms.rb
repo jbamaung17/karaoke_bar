@@ -12,7 +12,11 @@ class Room
   end
 
   def guest_check_in(guest)
+    if @room_guests.count >= @maximum_capacity
+      return "Sorry, this room is full"
+    else
     @room_guests << guest
+  end
   end
 
   def guest_check_out(guest)
