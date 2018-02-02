@@ -32,4 +32,9 @@ class Room
     @playlist << song
   end
 
+  def oh_no_godzilla
+    @playlist.clear
+    @room_guests.clear
+    return "And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The #{self.name} is completely destroyed, there are no survivors. Long live our lizard Lord"
+  end
 end
