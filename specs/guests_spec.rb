@@ -28,4 +28,5 @@ class GuestsTest < MiniTest::Test
     assert_equal(2, @room.till)
   end
 
+
 end
