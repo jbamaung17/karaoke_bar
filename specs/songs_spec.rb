@@ -12,6 +12,14 @@ def setup
 
 end
 
+def test_song_has_artist
+  @song.artist
+end
+
+def test_song_has_title
+  @song.title
+end
+
 
 
 
