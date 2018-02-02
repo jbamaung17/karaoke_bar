@@ -18,6 +18,18 @@ class RoomsTest < MiniTest::Test
     assert_equal("Blue Banana", @room.name)
   end
 
+  def test_room_has_maximum_capacity
+    assert_equal(5, @room.maximum_capacity)
+  end
+
+  def test_room_has_playlist
+    assert_equal("Cheesy Tunes", @room.playlist)
+  end
+
+  def test_room_has_guests
+    assert_equal(0, @room.room_guests.count)
+  end
+
 
 
 
