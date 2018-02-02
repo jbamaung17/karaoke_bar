@@ -11,7 +11,8 @@ class RoomsTest < MiniTest::Test
   def setup
 
     @room = Room.new("Blue Banana", "Cheesy Tunes", 5)
-    @guest = Guest.new("Jean", "Africa by Toto")
+    @guest1 = Guest.new("Jean", "Africa by Toto")
+    @guest2 = Guest.new("Kevin Bacon", "Footloose by Kenny Loggins")
 
   end
 
@@ -32,9 +33,16 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_guest_check_in
-    @room.guest_check_in(@guest)
+    @room.guest_check_in(@guest1)
     assert_equal(1, @room.room_guests.count)
     assert_equal("Jean", @room.room_guests[0].name)
+  end
+
+  def test_guest_check_out
+    @room.guest_check_in(@guest1)
+    @room.guest_check_in(@guest2)
+    @room.guest_check_out(@guest1)
+    assert_equal(1, @room.room_guests.count)
   end
 
 

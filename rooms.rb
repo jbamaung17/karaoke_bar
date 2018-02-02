@@ -15,6 +15,14 @@ def guest_check_in(guest)
   @room_guests << guest
 end
 
+def guest_check_out(guest)
+  for people in @room_guests
+    if people == guest
+      @room_guests.delete(guest)
+    end
+  end
+end
+
 
 
 
