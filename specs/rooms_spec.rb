@@ -80,8 +80,9 @@ end
 
 
 def test_sell_drink
-  @room.sell_drink(@drink1)
+  @room.sell_drink(@drink1, @guest1)
   assert_equal(5, @room.till)
+  assert_equal(45, @guest1.money)
 end
 
 

@@ -38,8 +38,9 @@ class Room
     return "And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The #{self.name} is completely destroyed, there are no survivors. Long live our lizard Lord"
   end
 
-  def sell_drink(drink)
+  def sell_drink(drink, guest)
     @till += drink.price
+    guest.money -= drink.price
   end
 
 end
