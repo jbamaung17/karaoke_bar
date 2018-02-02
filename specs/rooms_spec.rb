@@ -5,6 +5,7 @@ require("pry")
 require_relative('../guest.rb')
 require_relative('../songs.rb')
 require_relative('../rooms.rb')
+require_relative('../drink.rb')
 
 class RoomsTest < MiniTest::Test
 
@@ -22,6 +23,7 @@ class RoomsTest < MiniTest::Test
     @guest4 = Guest.new("Terry Crews", @song4, 50)
     @guest5 = Guest.new("Tina Fey", @song5, 50)
     @guest6 = Guest.new("Tom Cruise", @song6, 50)
+    @drink1 = Drink.new("Gordons", 5, 2)
 
   end
 
@@ -77,7 +79,10 @@ def test_oh_no_godzilla
 end
 
 
-
+def test_sell_drink
+  @room.sell_drink(@drink1)
+  assert_equal(5, @room.till)
+end
 
 
 end
