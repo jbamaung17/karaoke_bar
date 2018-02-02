@@ -9,14 +9,19 @@ require_relative('../rooms.rb')
 class RoomsTest < MiniTest::Test
 
   def setup
-    @song = Song.new("Africa", "Toto")
+    @song1 = Song.new("Africa", "Toto")
+    @song2 = Song.new("Footloose", "Kenny Loggins")
+    @song3 = Song.new("D'ya think I'm sexy", "Rod Stewart")
+    @song4 = Song.new("Circle of Life", "Elton John")
+    @song5 = Song.new("I want it all", "Queen")
+    @song6 = Song.new("Friday", "Rebecca Black")
     @room = Room.new("Blue Banana", 5)
-    @guest1 = Guest.new("Jean", "Africa by Toto")
-    @guest2 = Guest.new("Kevin Bacon", "Footloose by Kenny Loggins")
-    @guest3 = Guest.new("Jeff Bridges", "Lion King by Disney")
-    @guest4 = Guest.new("Terry Crews", "D'ya think I'm sexy by Rod Stewart")
-    @guest5 = Guest.new("Tina Fey", "I want it all by Queen")
-    @guest6 = Guest.new("Tom Cruise", "Friday by Rebecca Black")
+    @guest1 = Guest.new("Jean", @song1, 50)
+    @guest2 = Guest.new("Kevin Bacon", @song2, 50)
+    @guest3 = Guest.new("Jeff Bridges", @song3, 50)
+    @guest4 = Guest.new("Terry Crews", @song4, 50)
+    @guest5 = Guest.new("Tina Fey", @song5, 50)
+    @guest6 = Guest.new("Tom Cruise", @song6, 50)
 
   end
 
@@ -45,7 +50,7 @@ class RoomsTest < MiniTest::Test
     @room.guest_check_in(@guest4)
     @room.guest_check_in(@guest5)
     @room.guest_check_in(@guest6)
-    assert_equal("Sorry, this room is full", @room.guest_check_in(@guest6))
+    assert_equal("Sorry, this room is full.", @room.guest_check_in(@guest6))
 
   end
 
@@ -57,7 +62,7 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_add_song_to_playlist
-    @room.add_song_to_playlist(@song)
+    @room.add_song_to_playlist(@song1)
     assert_equal(1, @room.playlist.count)
     assert_equal("Africa", @room.playlist[0].title)
   end
