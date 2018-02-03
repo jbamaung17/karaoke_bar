@@ -19,4 +19,12 @@ class Guest
     @drunkenness += drink.alcohol_level
   end
 
+  def sing_song
+    if @drunkenness >= 10
+      return "GIMME #{favourite_song[0].upcase} BY #{favourite_song[1].upcase}!!!"
+    else
+      return "I'm going to sing #{favourite_song[0]} by #{favourite_song[1]}"
+    end
+  end
+
 end

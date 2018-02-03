@@ -36,5 +36,21 @@ class GuestsTest < MiniTest::Test
     assert_equal(2, @guest1.drunkenness)
   end
 
+  def test_sing_song__drunk
+    @guest1.guest_take_drink(@drink1)
+    @guest1.guest_take_drink(@drink1)
+    @guest1.guest_take_drink(@drink1)
+    @guest1.guest_take_drink(@drink1)
+    @guest1.guest_take_drink(@drink1)
+    @guest1.sing_song
+    assert_equal(10, @guest1.drunkenness)
+    assert_equal("GIMME AFRICA BY TOTO!!!", @guest1.sing_song)
+  end
+
+  def test_sing_song__sober
+    @guest1.sing_song
+    assert_equal("I'm going to sing Africa by Toto", @guest1.sing_song)
+  end
+
 
 end

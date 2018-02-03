@@ -69,21 +69,20 @@ class RoomsTest < MiniTest::Test
     assert_equal("Africa", @room.playlist[0].title)
   end
 
-def test_oh_no_godzilla
-  @room.add_song_to_playlist(@song1)
-  @room.guest_check_in(@guest1)
-  @room.oh_no_godzilla
-  assert_equal(0, @room.playlist.count)
-  assert_equal(0, @room.room_guests.count)
-  assert_equal("And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The Blue Banana is completely destroyed, there are no survivors. Long live our lizard Lord", @room.oh_no_godzilla)
-end
+  def test_oh_no_godzilla
+    @room.add_song_to_playlist(@song1)
+    @room.guest_check_in(@guest1)
+    @room.oh_no_godzilla
+    assert_equal(0, @room.playlist.count)
+    assert_equal(0, @room.room_guests.count)
+    assert_equal("And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The Blue Banana is completely destroyed, there are no survivors. Long live our lizard Lord", @room.oh_no_godzilla)
+  end
 
 
-def test_sell_drink
-  @room.sell_drink(@drink1, @guest1)
-  assert_equal(5, @room.till)
-  assert_equal(45, @guest1.money)
-end
-
+  def test_sell_drink
+    @room.sell_drink(@drink1, @guest1)
+    assert_equal(5, @room.till)
+    assert_equal(45, @guest1.money)
+  end
 
 end
