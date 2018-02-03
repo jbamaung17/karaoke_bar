@@ -5,11 +5,12 @@ require("pry")
 require_relative('../guest.rb')
 require_relative('../songs.rb')
 require_relative('../rooms.rb')
+require_relative('../drink.rb')
 
 class GuestsTest < MiniTest::Test
 
   def setup
-
+    @drink1 = Drink.new("Jameson", 5, 2)
     @guest1 = Guest.new("Jean", ["Africa", "Toto"], 50)
     @room = Room.new("Blue Banana", 5, 2)
   end
@@ -26,6 +27,13 @@ class GuestsTest < MiniTest::Test
     @guest1.guest_pay_entry_fee(@room)
     assert_equal(48, @guest1.money)
     assert_equal(2, @room.till)
+  end
+
+  def test_guest_take_drink
+    @room.sell_drink(@drink1, @guest1)
+    @guest1.guest_take_drink(@drink1)
+    assert_equal(45, @guest1.money)
+    assert_equal(2, @guest1.drunkenness)
   end
 
 

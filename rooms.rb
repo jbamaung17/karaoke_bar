@@ -1,10 +1,10 @@
 class Room
 
-  attr_reader :name, :maximum_capacity, :entry_fee
+  attr_reader :room_name, :maximum_capacity, :entry_fee
   attr_accessor :playlist, :room_guests, :till
 
   def initialize(room_name, maximum_capacity, entry_fee)
-    @name = room_name
+    @room_name = room_name
     @playlist = []
     @maximum_capacity = maximum_capacity
     @room_guests = []
@@ -35,7 +35,7 @@ class Room
   def oh_no_godzilla
     @playlist.clear
     @room_guests.clear
-    return "And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The #{self.name} is completely destroyed, there are no survivors. Long live our lizard Lord"
+    return "And suddenly, as if from nowhere, Godzilla rises from the sea and destroys downtown Tokyo. The #{self.room_name} is completely destroyed, there are no survivors. Long live our lizard Lord"
   end
 
   def sell_drink(drink, guest)

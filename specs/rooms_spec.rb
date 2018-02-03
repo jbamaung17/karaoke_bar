@@ -28,7 +28,7 @@ class RoomsTest < MiniTest::Test
   end
 
   def test_room_has_name
-    assert_equal("Blue Banana", @room.name)
+    assert_equal("Blue Banana", @room.room_name)
   end
 
   def test_room_has_maximum_capacity
